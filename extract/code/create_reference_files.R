@@ -34,9 +34,13 @@ for(i in 1:22){
 }
 
 snp_info <- cbind(snp_info,CHR)
-
+snp_info <- as.data.frame(snp_info)
 save(snp_info,file="/dcl01/chatterj/data/UKBiobank_pipeline/extract/result/snp_info.Rdata")
 
+##############read the rs_id for targeted SNPs
+setwd('/dcl01/chatterj/data/UKBiobank_pipeline/extract/result')
+rs_id <- fread("rs_id.txt",header=F)
+idx <- which((rs_id%in%snp_info$rs_id)==F)
 
 
 
