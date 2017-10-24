@@ -23,3 +23,8 @@ for(i in 1:length(idx)){
   jdx <- which(snp_info$CHR==CHR&snp_info$position==position)
   updated_names <- c(updated_names,snp_info[jdx,1])
 }
+rs_id_temp[idx] <- updated_names
+write.table(rs_id_temp,"rs_id.txt",row.names = F,col.names = F,quote=F)
+
+
+
