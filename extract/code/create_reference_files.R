@@ -38,13 +38,11 @@ snp_info <- as.data.frame(snp_info)
 save(snp_info,file="/dcl01/chatterj/data/UKBiobank_pipeline/extract/result/snp_info.Rdata")
 
 ##############read the rs_id for targeted SNPs
-setwd('/dcl01/chatterj/data/UKBiobank_pipeline/extract/result')
-rs_id <- read.table("rs_id.txt",header=F,stringsAsFactors = F)
-
-idx <- which((snp_info$rs_id%in%rs_id)==T)
 
 
-idx <- which(snp_info$rs_id==)
+
+
+#idx <- which(snp_info$rs_id==)
 
 
 
