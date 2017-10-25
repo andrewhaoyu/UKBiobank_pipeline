@@ -4,6 +4,28 @@
 
 #library(eeptools)
 load("/dcl01/chatterj/data/UKBiobank_pipeline/pheno/result")
+ICD_9 <- bd[,2766:2795]
+ICD_10 <- bd[,2632:2663]
+library(data.table)
+pheno <- fread("/dcl01/chatterj/data/UKBiobank_pipeline/pheno/result/Data_Cancer.txt",
+               header = T)
+
+idx.cases <- which(pheno$Breast==1)
+cases <- pheno[idx.cases,]
+
+
+##check whether the person got multiple cancer
+idx.cases.multiple.cancer <- which(cases$Prostate!=99|cases$Colorectal!=99|cases$Bronchus_Lung!=99|cases$Melanoma_of_skin!=99|cases$Non_Hodgkins_lymphoma!=99|cases$Corpus_Uterus!=99|cases$Kidney_RenalPelvis!=99|cases$Bladder!=99|cases$Ovary!=99|cases$Pancreas!=99|cases$Leukemia!=99|cases$Thyroid!=99)
+
+idx.control <-  which(pheno$Prostate==99&pheno$Colorectal==99&pheno$Bronchus_Lung==99&pheno$Melanoma_of_skin==99&pheno$Non_Hodgkins_lymphoma==99&pheno$Corpus_Uterus==99&pheno$Kidney_RenalPelvis==99&pheno$Bladder==99&pheno$Ovary==99&pheno$Pancreas==99&pheno$Leukemia==99&pheno$Thyroid==99&pheno$Breast==99)
+
+
+
+# for(i in 1:nrow(cases)){
+# if({
+#   idx.cases.multiple.cancer  
+# }
+# }
 
 
 # bd <- read.table("/dcl01/chatterj/data/ukbiobank/pheno.tab", header=TRUE, sep="\t")
