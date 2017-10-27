@@ -38,7 +38,15 @@ pc.clean <- pc[subject.id.fam%in%overlap.id,]
 sample.clean <- sample[sample.id%in%overlap.id,]
 fam.clean <- fam[subject.id.fam%in%overlap.id,]
 
-all.equal(fam.clean$V1,sample.clean$ID_1,pheno.clean$Subject_ID)
+
+all.equal(fam.clean$V1,sample.clean$ID_1)
+all.equal(fam.clean$V1,pheno.clean$Subject_ID)
+idx.match <- match(fam.clean$V1,pheno.clean$Subject_ID)
+pheno.clean <- pheno.clean[idx.match,]
+
+all.equal(pheno.clean$Subject_ID,fam.clean$V1)
+
+
 
 save(pheno.clean,file="/dcl01/chatterj/data/UKBiobank_pipeline/pheno/result/pheno.clean.Rdata")
 save(pc.clean,file="/dcl01/chatterj/data/UKBiobank_pipeline/pheno/result/pc.clean.Rdata")
