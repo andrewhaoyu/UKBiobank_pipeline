@@ -66,6 +66,7 @@ for(i in 1:n.snps){
   p.value.result[i] <- p.value
     
 }
+close(con)
 # text <- NULL
 # for(i in 1:15){
 #   text <- paste0(text,"+sample.snptest$pc",i)
