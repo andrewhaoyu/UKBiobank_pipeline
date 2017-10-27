@@ -14,9 +14,9 @@ bin1[bin1==99] <- 0
 sample.pheno <- sample.clean[,1:3]
 
 pc.pheno <- pc.clean[,1:15]
-colnames(pc.pheno) <- c("pc1","pc2","pc3","pc4","pc5","pc6",
-                        "pc7","pc8","pc9","pc10","pc11","pc12",
-                        "pc13","pc14","pc15")
+colnames(pc.pheno) <- c("cov1","cov2","cov3","cov4","cov5","cov6",
+                        "cov7","cov8","cov9","cov10","cov11","cov12",
+                        "cov13","cov14","cov15")
 first.row <- c(rep(0,3),rep("C",15),"B")
 
 sample.snptest <- data.frame(sample.pheno,pc.pheno,bin1)
@@ -24,3 +24,4 @@ sample.snptest <- data.frame(sample.pheno,pc.pheno,bin1)
 sample.snptest <- rbind(first.row,sample.snptest)
 
 write.table(sample.snptest,file="/dcl01/chatterj/data/UKBiobank_pipeline/standard_anlysis/result/sample_snptest.sample",row.names = F,col.names = T, quote=F)
+

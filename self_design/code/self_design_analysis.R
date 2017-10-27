@@ -44,6 +44,7 @@ con <- file(file.name)
 open(con)
 
 for(i in 1:n.snps){
+  print(i)
   oneLine <- readLines(con,n=1)
   myVector <- strsplit(oneLine," ")
   snpid <- as.character(myVector[[1]][2])
@@ -58,13 +59,17 @@ for(i in 1:n.snps){
   
   model <- glm(sample.snptest$bin1~snpvalue+sample.snptest$pc1+sample.snptest$pc2+sample.snptest$pc3+sample.snptest$pc4+sample.snptest$pc5+sample.snptest$pc6+sample.snptest$pc7+sample.snptest$pc8+sample.snptest$pc9+sample.snptest$pc10+sample.snptest$pc11+sample.snptest$pc12+sample.snptest$pc13+sample.snptest$pc14+sample.snptest$pc15,
                family = 'binomial')
-  
+  sum.model <- summary(model)
+  # model <- glm(sample.snptest$bin1~snpvalue,
+  #              family = 'binomial')
+  p.value <-  sum.model$coefficients[2,4]
+  p.value.result[i] <- p.value
     
 }
-text <- NULL
-for(i in 1:15){
-  text <- paste0(text,"+sample.snptest$pc",i)
-}
+# text <- NULL
+# for(i in 1:15){
+#   text <- paste0(text,"+sample.snptest$pc",i)
+# }
 
 
 
