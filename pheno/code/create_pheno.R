@@ -51,6 +51,19 @@ id.exclusion <- sample.id[which(sample.id%in%overlap.id!=T)]
 id.exclusion <- id.exclusion[-1]
 
 write.table(id.exclusion,file="/dcl01/chatterj/data/UKBiobank_pipeline/pheno/result/exclusion_id.txt",row.names = F,col.names=F,quote=F)
+
+
+
+
+
+
+
+
+
+
+
+
+
 #test <- which(sample.id%in%overlap.id!=T)
 
 
