@@ -19,5 +19,5 @@ sample.snptest <- data.frame(sample.pheno,pc.pheno,bin1)
 
 sample.snptest <- rbind(first.row,sample.snptest)
 
-write.table(sample.pheno.snptest,file="/dcl01/chatterj/data/UKBiobank_pipeline/standard_anlysis/result/sample.snptest.txt",row.names = F,
+write.table(sample.pheno.snptest,file="/dcl01/chatterj/data/UKBiobank_pipeline/standard_anlysis/result/sample_snptest.sample",row.names = F,
             col.names =F, quote=F)
