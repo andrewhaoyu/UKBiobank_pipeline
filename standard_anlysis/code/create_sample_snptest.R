@@ -6,3 +6,18 @@ load("/dcl01/chatterj/data/UKBiobank_pipeline/pheno/result/pheno.clean.Rdata")
 load("/dcl01/chatterj/data/UKBiobank_pipeline/pheno/result/pc.clean.Rdata")
 load("/dcl01/chatterj/data/UKBiobank_pipeline/pheno/result/sample.clean.Rdata")
 load("/dcl01/chatterj/data/UKBiobank_pipeline/pheno/result/fam.clean.Rdata")
+
+#### Take out breast cancer
+### create the corresponding pheno files
+bin1 <- pheno.clean$Breast
+bin1[bin1==99] <- 0
+sample.pheno <- sample.clean[,1:3]
+pc.pheno <- pc.clean[,1:15]
+first.row <- c(rep(0,3),rep("C",15),"B")
+
+sample.snptest <- data.frame(sample.pheno,pc.pheno,bin1)
+
+sample.snptest <- rbind(first.row,sample.snptest)
+
+write.table(sample.pheno.snptest,file="/dcl01/chatterj/data/UKBiobank_pipeline/standard_anlysis/result/sample.snptest.txt",row.names = F,
+            col.names =F, quote=F)
