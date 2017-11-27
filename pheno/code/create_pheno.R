@@ -3,6 +3,8 @@
 
 
 #library(eeptools)
+#
+#fully raw data, uncleaned cohort data
 load("/dcl01/chatterj/data/UKBiobank_pipeline/pheno/result/pheno.Rdata")
 ###ICD codes related to breat cancer
 
